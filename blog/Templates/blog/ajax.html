@@ -1,0 +1,57 @@
+{% extends 'blog/master.html' %}
+{% block title %} Registation Page {% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+
+<h1>{{msg}}</h1>
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-xl-6 mx-auto">
+<form  >
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="uname">Username</label>
+    <input type="text" class="form-control" id="ename" name="ename">
+  </div>
+    <div class="form-group">
+    <label for="uname">Eloc</label>
+    <input type="text" class="form-control" id="eloc" name="eloc">
+  </div>
+    <div class="form-group">
+    <label for="uname">Esal</label>
+    <input type="text" class="form-control" id="esal" name="esal">
+  </div>
+    <input type="button" class="btn btn-primary" name="sub" value="Insert" id="insert">
+    <input type="button" class="btn btn-primary" name="sub1" value="Display" id="display">
+</form>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="a">
+    <div class="row">
+                <div class="col-md-6 col-lg-6 col-xl-6 mx-auto">
+
+<table border="1" cellpadding="10" class="table">
+      <thead>
+
+    <tr>
+        <th scope="col">Ename</th>
+        <th scope="col">Eloc</th>
+        <th scope="col">Esal</th>
+    <th>ASction</th>
+    </tr>
+      </thead>
+
+   <tbody>
+
+   </tbody>
+
+</table>
+                </div>
+    </div>
+</div>
+
+{% endblock %}

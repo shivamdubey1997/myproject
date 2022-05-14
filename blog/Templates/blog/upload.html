@@ -1,0 +1,73 @@
+{% extends 'blog/master.html' %}
+{% block title %} Upload Page {% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+
+<h1>{{msg}}</h1>
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-xl-6 mx-auto">
+<form action="uploadimg" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="uname">ProductName</label>
+    <input type="text" class="form-control" id="ename" name="pname">
+  </div>
+    <div class="form-group">
+    <label for="uname">Category</label>
+    <input type="text" class="form-control" id="eloc" name="pcat">
+  </div>
+    <div class="form-group">
+    <label for="uname">Price</label>
+    <input type="text" class="form-control"  name="price">
+  </div>
+      <div class="form-group">
+    <label for="uname">Date</label>
+    <input type="date" class="form-control"  name="date">
+  </div>
+      <div class="form-group">
+    <label for="uname">Image</label>
+    <input type="file" name="f" >
+  </div>
+    <input type="submit" class="btn btn-primary" name="sub" value="Upload">
+    <input type="submit" class="btn btn-primary" name="sub" value="Display">
+
+</form>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="a">
+    <div class="row">
+
+
+<table border="1" cellpadding="10" class="table">
+      <thead>
+
+    <tr>
+        <th scope="col">Pname</th>
+        <th scope="col">Pcategory</th>
+        <th scope="col">Price</th>
+        <th>Date</th>
+        <th>Image</th>
+    </tr>
+      </thead>
+
+    {% for x in data %}
+        <tr>
+
+            <td>{{x.product_name}}</td>
+            <td>{{x.product_category}}</td>
+            <td>{{x.product_price}}</td>
+            <td>{{x.product_date}}</td>
+            <td><img src="/media/{{x.product_image}}" width="200" height="200"/></td>
+
+        </tr>
+    {% endfor %}
+</table>
+    </div>
+</div>
+
+{% endblock %}

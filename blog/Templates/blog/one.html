@@ -1,0 +1,47 @@
+{% extends 'blog/master.html' %}
+{% block title %} More Page {% endblock%}
+
+{% block body %}
+<h1>{{msg}}</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-xl-6 mx-auto">
+<form action="moredata" method="get" >
+    <!--Ename:<input type="text" name="ename"><br>-->
+
+    <select name="ename" class="form-control">
+         {%for x in data1 %}
+        <option>
+
+        {{x.ename}}
+        </option>
+        {% endfor %}
+
+    </select>
+
+    <input type="submit" name="sub" value="Display">
+     <input type="submit" name="sub" value="Delete" onclick="return confirm('Are u want to delete..?')">
+     <input type="submit" name="sub" value="Edit">
+</form>
+        </div>
+    </div>
+</div>
+
+<table border="1" cellpadding="10">
+    <tr>
+
+        <th>Ename</th>
+        <th>Eloc</th>
+        <th>Esal</th>
+    </tr>
+
+        <tr>
+
+            <td>{{data.ename}}</td>
+            <td>{{data.eloc}}</td>
+            <td>{{data.esal}}</td>
+        </tr>
+
+</table>
+
+{% endblock %}
